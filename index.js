@@ -12,9 +12,9 @@ const score = {
 
 
 function computerPlay() {
-    let choise = Math.floor(Math.random() * 3);
+    let index = Math.floor(Math.random() * 3);
     
-    
+    let choise = gameChoises[index];
     
     return choise;
 }
@@ -28,7 +28,11 @@ function humanPlay() {
         choise = prompt(`Make your choise -> Rock - Paper or Scissors`);
         
         if (choise) {
-            if (choise.toLowerCase() === 'rock' || choise.toLowerCase() === 'papper' || choise.toLowerCase() === 'scissors') {
+            if (
+                choise.toLowerCase() === 'rock' || 
+                choise.toLowerCase() === 'papper' || 
+                choise.toLowerCase() === 'scissors'
+            ) {
                 isInvalid = false;
             }
         }
@@ -41,8 +45,10 @@ function humanPlay() {
 function gameWinner() {
     if (score.playerScore > score.computerScore) {
         console.log('Congratulations! YOU WON!');
+    } else if (score.playerScore < score.computerScore) {
+        console.log('Sorry, you lost! Better luck next time.');
     } else {
-        console.log('Sorry, you lost! Better luck next time');
+        console.log(`Ugh! It was a tie. :-(`);
     }
 }
 
@@ -55,24 +61,27 @@ function playGame() {
         console.log('ROUND: ', counter);
         
         let computerChoise = computerPlay();
-        let humanChoise = humanPlay();
+        let playerChoise = humanPlay();
         
         console.log(`Computer choise: ${computerChoise}`);
-        console.log(`Player's choise: ${humanChoise}`);
+        console.log(`Player's choise: ${playerChoise}`);
         
-         if (computerChoise > humanChoise) {
-            console.log('Computer wins');
-            
-            score.computerScore = score.computerScore + 1;
-            
-        } else if (humanChoise > computerChoise) {
-            console.log('Player wins');
-            
-           score.playerScore = score.playerScore + 1;
-            
-        } else {
+        if (computerChoise === playerChoise) {
             console.log('It was a draw');
-        }
+        } else if (
+            playerChoise === 'rock' && computerChoise === 'scissors' ||
+            playerChoise === 'papper' && computerChoise === 'rock' ||
+            playerChoise === 'scissor' && computerChoise === 'papper'
+            ) {
+                console.log('Player wins');
+            
+                score.playerScore = score.playerScore + 1;
+            } else {
+                console.log('Computer wins');
+            
+                score.computerScore = score.computerScore + 1;
+            }
+                
         
          /* Score */
         console.log(`Score:\n Player: ${score.playerScore} ::: Computer: ${score.computerScore}`);
