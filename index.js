@@ -46,6 +46,7 @@ function printScore() {
      console.log(`Score:\n Player: ${score.playerScore} ::: Computer: ${score.computerScore}`);
 }
 
+
 function gameWinner() {
     if (score.playerScore > score.computerScore) {
         console.log('Congratulations! YOU WON!');
@@ -59,9 +60,7 @@ function gameWinner() {
 }
 
 
-
-function playGame() {
-    
+function playRound() {
     while (counter < 5) {
         counter++;
         console.log('ROUND: ', counter);
@@ -72,24 +71,30 @@ function playGame() {
         console.log(`Computer choise: ${computerChoise}`);
         console.log(`Player's choise: ${playerChoise}`);
         
-        if (computerChoise === playerChoise) {
+        if (computerChoise.toLowerCase() === playerChoise.toLowerCase()) {
             console.log('It was a draw');
         } else if (
             playerChoise.toLowerCase() === 'rock' && computerChoise.toLowerCase() === 'scissors' ||
             playerChoise.toLowerCase() === 'papper' && computerChoise.toLowerCase() === 'rock' ||
             playerChoise.toLowerCase() === 'scissors' && computerChoise.toLowerCase() === 'papper'
             ) {
-                console.log('Player wins');
+                console.log(`Player wins! ${playerChoise.toUpperCase()} beats ${computerChoise.toUpperCase()}`);
             
                 score.playerScore = score.playerScore + 1;
             } else {
-                console.log('Computer wins');
+                console.log(`Computer wins! ${computerChoise.toUpperCase()} beats ${playerChoise.toUpperCase()}`);
             
                 score.computerScore = score.computerScore + 1;
             }
                 
         printScore();
     }
+}
+
+
+function playGame() {
+    
+    playRound();
     
     if (counter >= 5) {
         gameWinner();
