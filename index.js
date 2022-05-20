@@ -5,10 +5,14 @@ let gameChoises = ['rock', 'paper', 'scissors'];
 let counter = 0;
 
 
+const score = {
+    playerScore: 0,
+    computerScore: 0
+}
 
 
 function computerPlay() {
-    let choise = Math.floor(Math.random() * 2);
+    let choise = Math.floor(Math.random() * 3);
     
     return choise;
 }
@@ -22,6 +26,16 @@ function humanPlay() {
     
     return choise;
 }
+
+
+function gameWinner() {
+    if (score.playerScore > score.computerScore) {
+        console.log('Congratulations! YOU WON!');
+    } else {
+        console.log('Sorry, you lost! Better luck next time');
+    }
+}
+
 
 
 function playGame() {
@@ -39,17 +53,25 @@ function playGame() {
          if (computerChoise > humanChoise) {
             console.log('Computer wins');
             
-            
+            score.computerScore = score.computerScore + 1;
             
         } else if (humanChoise > computerChoise) {
             console.log('Player wins');
             
-           
+           score.playerScore = score.playerScore + 1;
             
         } else {
             console.log('It was a draw');
         }
+        
+         /* Score */
+        console.log(`Score:\n Player: ${score.playerScore} :: Computer: ${score.computerScore}`);
     }
+    
+    if (counter >= 5) {
+        gameWinner();
+    }
+    
 }
 
 
