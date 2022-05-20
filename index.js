@@ -42,6 +42,10 @@ function humanPlay() {
 }
 
 
+function printScore() {
+     console.log(`Score:\n Player: ${score.playerScore} ::: Computer: ${score.computerScore}`);
+}
+
 function gameWinner() {
     if (score.playerScore > score.computerScore) {
         console.log('Congratulations! YOU WON!');
@@ -50,6 +54,8 @@ function gameWinner() {
     } else {
         console.log(`Ugh! It was a tie. :-(`);
     }
+    
+    counter = 0;
 }
 
 
@@ -69,9 +75,9 @@ function playGame() {
         if (computerChoise === playerChoise) {
             console.log('It was a draw');
         } else if (
-            playerChoise === 'rock' && computerChoise === 'scissors' ||
-            playerChoise === 'papper' && computerChoise === 'rock' ||
-            playerChoise === 'scissor' && computerChoise === 'papper'
+            playerChoise.toLowerCase() === 'rock' && computerChoise.toLowerCase() === 'scissors' ||
+            playerChoise.toLowerCase() === 'papper' && computerChoise.toLowerCase() === 'rock' ||
+            playerChoise.toLowerCase() === 'scissors' && computerChoise.toLowerCase() === 'papper'
             ) {
                 console.log('Player wins');
             
@@ -82,9 +88,7 @@ function playGame() {
                 score.computerScore = score.computerScore + 1;
             }
                 
-        
-         /* Score */
-        console.log(`Score:\n Player: ${score.playerScore} ::: Computer: ${score.computerScore}`);
+        printScore();
     }
     
     if (counter >= 5) {
