@@ -14,15 +14,25 @@ const score = {
 function computerPlay() {
     let choise = Math.floor(Math.random() * 3);
     
+    
+    
     return choise;
 }
 
 
 function humanPlay() {
-    let choise = prompt('Make your choise:');
+    let choise = '';
+    let isInvalid = true;
     
-    /* DONT FORGET TO LIMIT PLAYERS CHOISE */
-    
+    while (isInvalid) {
+        choise = prompt(`Make your choise -> Rock - Paper or Scissors`);
+        
+        if (choise) {
+            if (choise.toLowerCase() === 'rock' || choise.toLowerCase() === 'papper' || choise.toLowerCase() === 'scissors') {
+                isInvalid = false;
+            }
+        }
+    }
     
     return choise;
 }
@@ -47,8 +57,8 @@ function playGame() {
         let computerChoise = computerPlay();
         let humanChoise = humanPlay();
         
-        console.log(`Computer choise ${computerChoise}`);
-        console.log(`Player's choise ${humanChoise}`);
+        console.log(`Computer choise: ${computerChoise}`);
+        console.log(`Player's choise: ${humanChoise}`);
         
          if (computerChoise > humanChoise) {
             console.log('Computer wins');
@@ -65,7 +75,7 @@ function playGame() {
         }
         
          /* Score */
-        console.log(`Score:\n Player: ${score.playerScore} :: Computer: ${score.computerScore}`);
+        console.log(`Score:\n Player: ${score.playerScore} ::: Computer: ${score.computerScore}`);
     }
     
     if (counter >= 5) {
