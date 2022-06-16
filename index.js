@@ -30,7 +30,7 @@ function humanPlay() {
         if (choise) {
             if (
                 choise.toLowerCase() === 'rock' || 
-                choise.toLowerCase() === 'papper' || 
+                choise.toLowerCase() === 'paper' || 
                 choise.toLowerCase() === 'scissors'
             ) {
                 isInvalid = false;
@@ -75,8 +75,8 @@ function playRound() {
             console.log('It was a draw');
         } else if (
             playerChoise.toLowerCase() === 'rock' && computerChoise.toLowerCase() === 'scissors' ||
-            playerChoise.toLowerCase() === 'papper' && computerChoise.toLowerCase() === 'rock' ||
-            playerChoise.toLowerCase() === 'scissors' && computerChoise.toLowerCase() === 'papper'
+            playerChoise.toLowerCase() === 'paper' && computerChoise.toLowerCase() === 'rock' ||
+            playerChoise.toLowerCase() === 'scissors' && computerChoise.toLowerCase() === 'paper'
             ) {
                 console.log(`Player wins! ${playerChoise.toUpperCase()} beats ${computerChoise.toUpperCase()}`);
             
