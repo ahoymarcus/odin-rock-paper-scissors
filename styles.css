@@ -15,7 +15,8 @@
     font-size: 1rem;
     color: purple;
     background-color: transparent;
-    border: none;
+    border: 1px dashed purple;
+    cursor: pointer;
 }
 
 

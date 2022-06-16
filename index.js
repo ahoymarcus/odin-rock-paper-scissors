@@ -1,15 +1,27 @@
-const gameSelectionBtns = document.querySelector('button');
-
-
-
-
+/*
+ *  The Web UI Game Version
+ */
+// Start the Game
 let startGame = document.querySelector('.start');
 startGame.addEventListener('click', playGame);
 
+
+// UI log
+const msgUI = document.querySelector('.result-log');
+
+// Make players selections
+const gameSelectionBtns = document.querySelectorAll('button');
+
+
+
+
+
+
 let gameChoises = ['rock', 'paper', 'scissors'];
+
+
+// TEST THESE VARS AT THE LOCAL SCOPE
 let counter = 0;
-
-
 const score = {
     playerScore: 0,
     computerScore: 0
@@ -26,24 +38,19 @@ function computerPlay() {
 
 
 function humanPlay() {
-    let choise = '';
-    let isInvalid = true;
+    let humanChoise;
     
-    while (isInvalid) {
-        choise = prompt(`Make your choise -> Rock - Paper or Scissors`);
-        
-        if (choise) {
-            if (
-                choise.toLowerCase() === 'rock' || 
-                choise.toLowerCase() === 'paper' || 
-                choise.toLowerCase() === 'scissors'
-            ) {
-                isInvalid = false;
-            }
-        }
-    }
-    
-    return choise;
+    gameSelectionBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            console.log(e);
+            humanChoise = e.target.textContent;
+            
+            // log
+            msgUI.innerHTML = humanChoise;
+            
+            return humanChoise;
+        });
+    });
 }
 
 
@@ -65,34 +72,55 @@ function gameWinner() {
 }
 
 
-function playRound() {
+
+function printUIMsg(msg) {
+    return null;
+}
+
+
+function playRound() {    
     while (counter < 5) {
         counter++;
         console.log('ROUND: ', counter);
         
+        
+        
         let computerChoise = computerPlay();
         let playerChoise = humanPlay();
         
+        
+        while (!playerChoise) {
+            if (playerChoise) {
+                if (computerChoise.toLowerCase() === playerChoise.toLowerCase()) {
+                    console.log('It was a draw');
+                } else if (
+                    playerChoise.toLowerCase() === 'rock' && computerChoise.toLowerCase() === 'scissors' ||
+                    playerChoise.toLowerCase() === 'paper' && computerChoise.toLowerCase() === 'rock' ||
+                    playerChoise.toLowerCase() === 'scissors' && computerChoise.toLowerCase() === 'paper'
+                    ) {
+                        console.log(`Player wins! ${playerChoise.toUpperCase()} beats ${computerChoise.toUpperCase()}`);
+                    
+                        score.playerScore = score.playerScore + 1;
+                    } else {
+                        console.log(`Computer wins! ${computerChoise.toUpperCase()} beats ${playerChoise.toUpperCase()}`);
+                    
+                        score.computerScore = score.computerScore + 1;
+                    }
+                        
+                printScore();
+            } else {
+                msgUI.innerHTML = `Make your choise -> Rock - Paper or Scissors`;
+            }
+        }
+        
+        
+       
         console.log(`Computer choise: ${computerChoise}`);
         console.log(`Player's choise: ${playerChoise}`);
+            
+            
         
-        if (computerChoise.toLowerCase() === playerChoise.toLowerCase()) {
-            console.log('It was a draw');
-        } else if (
-            playerChoise.toLowerCase() === 'rock' && computerChoise.toLowerCase() === 'scissors' ||
-            playerChoise.toLowerCase() === 'paper' && computerChoise.toLowerCase() === 'rock' ||
-            playerChoise.toLowerCase() === 'scissors' && computerChoise.toLowerCase() === 'paper'
-            ) {
-                console.log(`Player wins! ${playerChoise.toUpperCase()} beats ${computerChoise.toUpperCase()}`);
-            
-                score.playerScore = score.playerScore + 1;
-            } else {
-                console.log(`Computer wins! ${computerChoise.toUpperCase()} beats ${playerChoise.toUpperCase()}`);
-            
-                score.computerScore = score.computerScore + 1;
-            }
-                
-        printScore();
+        
     }
 }
 
