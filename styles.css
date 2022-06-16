@@ -1,0 +1,26 @@
+
+
+.start {
+    font-size: 0.9rem;
+    color: yellow;
+    background-color: gray;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 8px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.start:hover {
+    font-size: 1rem;
+    color: purple;
+    background-color: transparent;
+    border: none;
+}
+
+
+.results {
+    margin-top: 40px;
+}
+
+

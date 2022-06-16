@@ -1,3 +1,8 @@
+const gameSelectionBtns = document.querySelector('button');
+
+
+
+
 let startGame = document.querySelector('.start');
 startGame.addEventListener('click', playGame);
 
