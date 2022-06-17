@@ -3,7 +3,7 @@
 
 <br />
 
-This is the third project from The Odin Project and the first one from the JavaScript section. It aims to recreate the ROCK PAPER SCISSORS game.
+This is the third project from The Odin Project and the first one from the JavaScript section. It aims to recreate the traditional ROCK PAPER SCISSORS game.
 
 <br />
 
@@ -17,32 +17,32 @@ Dependências:
 
 - HTML
 - CSS
-- CSS Design Pattern
+- JavaScript
 
 
 
 <br />
 
 
-### Imagem das seções:
+### Imagem da tela inicial do jogo:
 
-![Imagem das seções header e welcome da Landing Page](/public/images/)
-
-
-<br />
-
-
-### Imagem da seção de Informações:
-
-![Imagem da seção de informações da Landing Page](/public/images/)
+![Imagem da tela inicial do jogo](/public/images/rockpaperscissors-game-01.png)
 
 
 <br />
 
 
-### Imagem das seções finais da:
+### Imagem do jogo:
 
-![Imagem das seções finais da Landing Page](/public/images/)
+![Imagem do jogo](/public/images/rockpaperscissors-game-02.png)
+
+
+<br />
+
+
+### Imagem da tela do jogo em dispositivo pequeno:
+
+![Imagem da tela do jogo em dispositivo pequeno](/public/images/rockpaperscissors-game-03.png)
 
 
 

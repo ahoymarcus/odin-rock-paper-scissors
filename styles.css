@@ -1,31 +1,68 @@
 header {
+    color: #a2a208;
 	font-size: 1.6rem;
 	text-align: center;
 }
 
 
 .btn-container {
-	max-width: 400px;
+	max-width: 80%;
 	margin: 20px auto;
 }
 
 button {
+    color: #4d451d;
+    font-weight: bold;
+    background-color: #d7d784;
 	font-size: 1.6rem;
-	text-transform: capitalize;
-	width: 130px;
-	padding: 5px;
+	text-transform: uppercase;
+	display: block;
+    padding: 10px 5px;
+    margin: 8px auto;
+    width: 50%;
+    min-width: 155px;
+    border-radius: 4px;
 }
 
 
 .result-log {
-	color: #0e6d12;
-	background-color: aliceblue;
+	color: #b74949;
+	background-color: #b7c2cc; /*aliceblue;*/
 	font-weight: bold;
 	font-size: 1.6rem;
 	text-align: center;
-	max-width: 360px;
-  margin: 20px auto;
+	max-width: 85%;
+    margin: 20px auto;
 	padding: 5px 15px;
 }
+
+
+@media only screen and (min-width: 690px) {
+    .btn-container {
+        display: flex;
+        justify-content: space-around;
+    }
+    button {
+        width: 30%;
+        height: 120px;
+        max-width: 226px;
+    }
+    .result-log {
+        max-width: 70%;
+    }
+}
+
+@media only screen and (min-width: 1010px) {
+    .btn-container {
+        max-width: 800px;
+        justify-content: center;
+    }
+    .result-log {
+        max-width: 50%;
+    }
+}
+
+
+
 
 
